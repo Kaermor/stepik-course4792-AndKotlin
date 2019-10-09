@@ -1,8 +1,19 @@
-fun main(args: Array<String>){
-    val str:String? = readLine()
-    var zeros_count:Int = 0
-    for (c in str!!){
-        if (c == '0') zeros_count++
+fun calculateEvenDigits(input:String): Int{
+    var sum = 0
+    println(input)
+    for (c in input){
+        println("${c} ${c.toInt()} ${c.toInt()%2}")
+
+        if (c.toInt()%2 == 0){
+            sum+=c.toInt()
+        }
     }
-    println("${zeros_count} zeros")
+    return sum
+}
+
+
+fun main(args: Array<String>){
+    val input:String = readLine()!!
+
+    println(calculateEvenDigits(input))
 }
