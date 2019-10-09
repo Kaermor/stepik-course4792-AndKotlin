@@ -1,15 +1,14 @@
-fun calcTax(sum:Int = 1000): Double{
-    val tax_ratio = 0.13
-    return tax_ratio * sum.toDouble()
+fun calcChairs(bugs:Int): Int{
+    return bugs + bugs/2
 }
 
 fun main(args: Array<String>) {
-    val sum_user: String? = readLine()
-    if (sum_user == null) return
+    val xs: String = readLine() ?: return
 
-    val sum:Int = sum_user.toInt()
+    val bugs: Int = xs.toInt()
+    val chairs:Int = calcChairs(bugs)
+//    val sum:Int = sum_user.toInt()
 
-    val tax:Double = calcTax(sum)
-    println("For ${sum} tax is ${tax}")
-    println("hello")
+//    val tax:Double = calcTax(sum)
+    println(chairs)
 }
