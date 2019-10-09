@@ -3,12 +3,12 @@ fun calcChairs(bugs:Int): Int{
 }
 
 fun main(args: Array<String>) {
-    val xs: String = readLine() ?: return
+    val bugs: Int = readLine()!!.toInt()
 
-    val bugs: Int = xs.toInt()
-    val chairs:Int = calcChairs(bugs)
+//    val bugs: Int = xs.toInt()
+//    val chairs:Int = calcChairs(bugs)
 //    val sum:Int = sum_user.toInt()
 
 //    val tax:Double = calcTax(sum)
-    println(chairs)
+    println(calcChairs(bugs))
 }
