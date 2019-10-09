@@ -1,14 +1,10 @@
-fun calcChairs(bugs:Int): Int{
-    return bugs + bugs/2
+fun calcBugMoneyValue(dayNumber: Int, bugRank: Int, cashAmount: Int): Int {
+    return (dayNumber*bugRank + 42)*cashAmount
 }
 
 fun main(args: Array<String>) {
-    val bugs: Int = readLine()!!.toInt()
+    val (dayNumber:Int, bugRank:Int, cashAmount:Int) = readLine()!!.split(' ').map(String::toInt)
 
-//    val bugs: Int = xs.toInt()
-//    val chairs:Int = calcChairs(bugs)
-//    val sum:Int = sum_user.toInt()
-
-//    val tax:Double = calcTax(sum)
-    println(calcChairs(bugs))
+    println(calcBugMoneyValue(dayNumber, bugRank, cashAmount))
+//    println("${dayNumber*2} ${bugRank*2} ${cashAmount*2}")
 }
