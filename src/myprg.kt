@@ -1,17 +1,15 @@
-fun calculateEvenDigits(input:String): Int{
-    var sum = 0
-    println(input)
-    for (c:Char in input){
-        //println("${c} ${c.toInt()-'0'.toInt()} ${c.toInt()%2}")
-
-        if ((c.toInt()-'0'.toInt())%2 == 0) sum+=c.toInt()-'0'.toInt()
+fun calculateBugMentions(input:List<String>): Int{
+    var sum:Int = 0
+    for (el in input){
+        if(el == "BUG") sum++
     }
     return sum
 }
 
 
 fun main(args: Array<String>){
-    val input:String = readLine()!!
+    val input:List<String> = readLine()!!.split(' ')
+//    println(input)
 
-    println(calculateEvenDigits(input))
+    println(calculateBugMentions(input))
 }
