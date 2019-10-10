@@ -1,8 +1,8 @@
 class NibirunianClass {
     public var namePlate: String = ""
-    public var name: String = ""
+    //public var name: String = ""
     public fun createNamePlate (name:String){
-        namePlate = "Live long and prosper, ${name}"
+        this.namePlate = "Live long and prosper, ${name}"
         return
     }
 }
