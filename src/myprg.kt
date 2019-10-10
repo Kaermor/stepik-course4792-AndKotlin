@@ -1,15 +1,24 @@
-fun calculateBugMentions(input:List<String>): Int{
-    var sum:Int = 0
-    for (el in input){
-        if(el == "BUG") sum++
+class NibirunianClass {
+    public var namePlate: String = ""
+    public var name: String = ""
+    public fun createNamePlate (name:String){
+        namePlate = "Live long and prosper, ${name}"
+        return
     }
-    return sum
 }
 
-
-fun main(args: Array<String>){
-    val input:List<String> = readLine()!!.split(' ')
-//    println(input)
-
-    println(calculateBugMentions(input))
-}
+//fun calculateBugMentions(input:List<String>): Int{
+//    var sum:Int = 0
+//    for (el in input){
+//        if(el == "BUG") sum++
+//    }
+//    return sum
+//}
+//
+//
+//fun main(args: Array<String>){
+//    val input:List<String> = readLine()!!.split(' ')
+////    println(input)
+//
+//    println(calculateBugMentions(input))
+//}
