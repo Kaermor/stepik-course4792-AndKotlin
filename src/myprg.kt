@@ -1,13 +1,21 @@
-open class item (var lvl: Int, var weight: Double)
+open class Bug(val rank: Int, val name:String) {
+    open fun getSugarLimit(): Int{
+        return rank
+    }
 
-open class weapon (lvl: Int, weight: Double):item(lvl, weight){
-    open fun calcDamage(): Int = 42
+    fun getId(): String{
+        return "${rank}.${name}"
+    }
 }
-class magic_weapon(lvl:Int, weight: Double):weapon(lvl, weight){
-    override fun calcDamage():Int = super.calcDamage()*2
+
+class  BugCivilian(rank: Int, name: String):Bug(rank, name){
+    override fun getSugarLimit(): Int {
+        return super.getSugarLimit()/2
+    }
 }
+
 
 fun main(args: Array<String>){
-    val instance: magic_weapon = magic_weapon(1, 1.0)
-    println("Damage = ${instance.calcDamage()}")
+//    val instance: BugCivilian = BugCivilian()
+//    println("Damage = ${instance.calcDamage()}")
 }
