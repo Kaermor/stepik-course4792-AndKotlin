@@ -1,38 +1,13 @@
-class SugarStorage(var volume:Int=0){
-    fun decreaseSugar(v:Int){
-        if (v >= 0){
-            volume = if (v <= volume) (volume - v) else 0
-        }
-    }
-    fun increaseSugar(v:Int){
-        if (v >= 0){
-            volume += v
-        }
-    }
+open class item (var lvl: Int, var weight: Double)
 
+open class weapon (lvl: Int, weight: Double):item(lvl, weight){
+    open fun calcDamage(): Int = 42
+}
+class magic_weapon(lvl:Int, weight: Double):weapon(lvl, weight){
+    override fun calcDamage():Int = super.calcDamage()*2
 }
 
-
 fun main(args: Array<String>){
-
-    var ss:SugarStorage = SugarStorage()
-    println("volume = ${ss.volume}")
-    ss.increaseSugar(10)
-    println("volume i+10 = ${ss.volume}")
-    ss.increaseSugar(100)
-    println("volume i+100 = ${ss.volume}")
-    ss.increaseSugar(0)
-    println("volume i+0 = ${ss.volume}")
-    ss.increaseSugar(-10)
-    println("volume i-10 = ${ss.volume}")
-    ss.decreaseSugar(10)
-    println("volume d+10 = ${ss.volume}")
-    ss.decreaseSugar(0)
-    println("volume d+0 = ${ss.volume}")
-    ss.decreaseSugar(-10)
-    println("volume d-10 = ${ss.volume}")
-    ss.decreaseSugar(200)
-    println("volume d+200 = ${ss.volume}")
-
-
+    val instance: magic_weapon = magic_weapon(1, 1.0)
+    println("Damage = ${instance.calcDamage()}")
 }
