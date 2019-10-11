@@ -1,25 +1,38 @@
-class player(var str:Int=0, var dex:Int=0, var XP:Int=0, var lvl:Int=1, var nextLvlXP:Int = 10){
-    fun recieveXP(xp: Int){
-        XP+=xp
-        if(XP >= nextLvlXP) lvlUP()
-        println("str=${str} dex=${dex} lvl= ${lvl}")
+class SugarStorage(var volume:Int=0){
+    fun decreaseSugar(v:Int){
+        if (v >= 0){
+            volume = if (v <= volume) (volume - v) else 0
+        }
+    }
+    fun increaseSugar(v:Int){
+        if (v >= 0){
+            volume += v
+        }
     }
 
-    private fun lvlUP(){
-        lvl += 1
-        str += if(lvl % 2 == 0) 1 else 0
-        dex += if(lvl % 2 == 1) 1 else 0
-
-        nextLvlXP += 100
-    }
 }
 
 
 fun main(args: Array<String>){
-    var p:player = player(str=2)
 
-    p.recieveXP(10)
-    p.recieveXP(100)
-    p.recieveXP(xp = 100)
+    var ss:SugarStorage = SugarStorage()
+    println("volume = ${ss.volume}")
+    ss.increaseSugar(10)
+    println("volume i+10 = ${ss.volume}")
+    ss.increaseSugar(100)
+    println("volume i+100 = ${ss.volume}")
+    ss.increaseSugar(0)
+    println("volume i+0 = ${ss.volume}")
+    ss.increaseSugar(-10)
+    println("volume i-10 = ${ss.volume}")
+    ss.decreaseSugar(10)
+    println("volume d+10 = ${ss.volume}")
+    ss.decreaseSugar(0)
+    println("volume d+0 = ${ss.volume}")
+    ss.decreaseSugar(-10)
+    println("volume d-10 = ${ss.volume}")
+    ss.decreaseSugar(200)
+    println("volume d+200 = ${ss.volume}")
+
 
 }
