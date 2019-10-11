@@ -1,24 +1,25 @@
-class NibirunianClass {
-    public var namePlate: String = ""
-    //public var name: String = ""
-    public fun createNamePlate (name:String){
-        this.namePlate = "Live long and prosper, ${name}"
-        return
+class player(var str:Int=0, var dex:Int=0, var XP:Int=0, var lvl:Int=1, var nextLvlXP:Int = 10){
+    fun recieveXP(xp: Int){
+        XP+=xp
+        if(XP >= nextLvlXP) lvlUP()
+        println("str=${str} dex=${dex} lvl= ${lvl}")
+    }
+
+    private fun lvlUP(){
+        lvl += 1
+        str += if(lvl % 2 == 0) 1 else 0
+        dex += if(lvl % 2 == 1) 1 else 0
+
+        nextLvlXP += 100
     }
 }
 
-//fun calculateBugMentions(input:List<String>): Int{
-//    var sum:Int = 0
-//    for (el in input){
-//        if(el == "BUG") sum++
-//    }
-//    return sum
-//}
-//
-//
-//fun main(args: Array<String>){
-//    val input:List<String> = readLine()!!.split(' ')
-////    println(input)
-//
-//    println(calculateBugMentions(input))
-//}
+
+fun main(args: Array<String>){
+    var p:player = player(str=2)
+
+    p.recieveXP(10)
+    p.recieveXP(100)
+    p.recieveXP(xp = 100)
+
+}
